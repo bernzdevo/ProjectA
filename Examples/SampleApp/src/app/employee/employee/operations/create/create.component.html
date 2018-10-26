@@ -1,0 +1,33 @@
+<section>
+  <h3>Create Employee</h3>
+  <form class="form form-group" name="EmpForm" #EmployeeForm="ngForm" (ngSubmit)="EmployeeForm.form.valid && SendEmployeeData(emp); EmployeeForm.reset()">
+    <input type="text" #firstname="ngModel" placeholder="First Name" class="form-control" [(ngModel)]="emp.firstname"
+      name="firstname" required>
+    <div *ngIf="firstname.dirty && firstname.invalid">First name is required!</div>
+    <input type="text" placeholder="Last Name" class="form-control" [(ngModel)]="emp.lastname" name="lastname"
+      required>
+    <input type="text" placeholder="Salary" class="form-control" [(ngModel)]="emp.salary" name="salary" required>
+    <input type="date" placeholder="Hire Date" class="form-control" [(ngModel)]="emp.hiredate" name="hiredate"
+      required>
+    <input type="Submit" value="Save Employee" class="form-control" />
+  </form>
+
+  <h3 appSample>Create Employee - Reactive Forms</h3>
+  <form class="form form-group" name="EmpReactForm" [formGroup]="empReactForm" (ngSubmit)="empReactForm.valid && SubmitReactiveForm()">
+    <input type="text" placeholder="First Name" class="form-control" formControlName="firstname">
+    <div *ngIf="empReactForm.controls['firstname'].errors?.required && empReactForm.controls['firstname'].dirty">
+      First name is required!
+    </div>
+    <div *ngIf="empReactForm.controls['firstname'].errors?.maxlength && empReactForm.controls['firstname'].dirty">
+      Max characters reached!
+    </div>
+    <input type="text" placeholder="Last Name"  class="form-control" formControlName="lastname">
+    <input type="text" placeholder="Salary"     class="form-control" formControlName="salary">
+    <input type="date" placeholder="Hire Date"  class="form-control" formControlName="hiredate">
+    <input type="file" formControlName="picture" class="form-control" (change)="FileUpload($event)">
+    <!-- <button (click)="FileUploadClick()">Upload!</button> -->
+    <input type="Submit" value="Save Employee" class="form-control" />
+
+  </form>
+
+</section>

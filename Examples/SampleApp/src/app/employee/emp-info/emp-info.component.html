@@ -1,0 +1,53 @@
+<p i18n>
+  Employee Info
+</p>
+<div>
+  <!-- <button (click)="SendNewMessage()">Click Me!</button> -->
+  <br>
+  Search :<input type="text" [(ngModel)]="searchText">
+  ID: <input type="radio" name="filterBy" [(ngModel)]="fBy" [value]="empId">
+  Firstname: <input type="radio" name="filterBy" [(ngModel)]="fBy" value="firstname">
+  Lastname: <input type="radio" name="filterBy" [(ngModel)]="fBy" value="lastname">
+  <br />
+  <a routerLink="/employee/create">Create New</a>
+  <table class="table table-striped" [mfData]="employees" #mf="mfDataTable" [mfRowsOnPage]="3">
+    <tr>
+      <th>
+        <mfDefaultSorter by="empId">Emp Id</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="firstname">First Name</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="lastname">Last Name</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="salary">Salary</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="hiredate">Hire Date</mfDefaultSorter>
+      </th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let employee of mf.data | filter:searchText:fBy">
+      <td> {{employee.empId}} </td>
+      <td> {{employee.firstname}} </td>
+      <td> {{employee.lastname}} </td>
+      <td> {{employee.salary| salaryIncrease:'+'| currency:'Php ' }} </td>
+      <td> {{employee.hiredate | date:'MMM-dd-yyyy'}}</td>
+      <td>
+        <img src="http://localhost/serversideapi/employee/getimage/{{employee.empId}}" width="50" />
+      </td>
+      <td>
+        <a routerLink="/employee/update/{{employee.empId}}">Edit</a> | 
+        <a routerLink="/employee/delete/{{employee.empId}}">Delete</a>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="7">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+  </table>
+</div>

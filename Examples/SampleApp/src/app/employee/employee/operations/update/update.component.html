@@ -1,0 +1,14 @@
+<p>
+  {{id}}
+  <a routerLink="/employee">Back</a>
+</p>
+<section>
+  <h3>Update Employee</h3>
+  <form class="form form-group" name="EditEmpForm" #EditEmployeeForm="ngForm" (ngSubmit)="EditEmployeeData(editEmp)">
+    <input type="text" placeholder="First Name" class="form-control" [(ngModel)]="editEmp.firstname" name="firstname">
+    <input type="text" placeholder="Last Name" class="form-control" [(ngModel)]="editEmp.lastname" name="lastname">
+    <input type="text" placeholder="Salary" class="form-control" [(ngModel)]="editEmp.salary" name="salary">
+    <input type="date" placeholder="Hire Date" class="form-control" [(ngModel)]="editEmp.hiredate" name="hiredate">
+    <input type="Submit" value="Update Employee" class="form-control" />
+  </form>
+</section>

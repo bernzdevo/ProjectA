@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="09370bbab1b0024be87d2792837bccfda942b078" datatype="html">
+        <source>
+    Employee Application
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/employee/employee/employee.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ab19f0db8f6d226d6b1427a78a9a8c2c50d98889" datatype="html">
+        <source>Welcome to my Application</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0c59090ceeeb762fe9532ca1fdcb467243f1c3fc" datatype="html">
+        <source>
+  Employee Info
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/employee/emp-info/emp-info.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
